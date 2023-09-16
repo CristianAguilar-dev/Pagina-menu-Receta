@@ -1,0 +1,19 @@
+    /* desarmar el menu hamburger */
+    .nav {
+        --state-hamburger: scale(0);
+        --state-menu: translate(0); 
+    }
+    .nav:target {
+        --state-close: scale(0);
+    }
+    .nav__links {
+        background-color: unset;
+        position: unset;
+        transform: unset;
+        grid-auto-flow: column;
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .nav__link {
+        font-size: 2rem;
+    }

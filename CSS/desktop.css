@@ -1,0 +1,15 @@
+.nav__links {
+    display: grid;
+    grid-template-columns: 129px 127px 163px 183px 189px;
+    gap: 15px;
+}
+.nav__link {
+    position: relative;
+}
+.nav__link::after {
+    position: absolute;
+    inset: 57px 0;
+    height: 4px;
+    border-radius: 20%;
+    border: 1px solid #fff;
+}
