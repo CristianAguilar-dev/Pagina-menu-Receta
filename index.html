@@ -21,8 +21,8 @@
 <body>
   <!-- inicio header -->
   <header class="header">
+    <a href="#" class="nav__logo">
     <nav class="nav container" id="nav">
-      <a href="#" class="nav__logo">
         <img src="./assets/logo-1.jpg" alt="Logo restaurante">
       </a>
       <!-- inicio lista de navegación -->
@@ -94,22 +94,25 @@
         <!-- contenedor imagen receta -->
         <figure class="receta__container-imagen">
           <!-- imagen receta -->
-          <img class="receta__imagen" src="./assets/bandeja paisa.webp" alt="Plato de comida bandeja paisa">
+          <img class="receta__imagen" src="./assets/bandeja paisa.webp" alt="Plato de comida bandeja paisa" title="Bandeja paisa">
         </figure>
   </section>
   
   <!-- inicio sección de tarjetas tiempo  -->
   <!-- tarjeta 1 nivel-->
   <section class="tiempo">
-    <figure class="tiempo__card">
-      <span class="tiempo__card-icon"><i class="bi bi-battery-half"></i></span>
-    <figcaption class="tiempo__card-info">
-      <h2 class="tiempo__card-title">Dificultad</h2>
-      <p class="tiempo__card-description">Intermedio</p>
-    </figcaption>
-    </figure>
+    <div class="tiempo__card-container">
+      <figure class="tiempo__card">
+        <span class="tiempo__card-icon"><i class="bi bi-battery-half"></i></span>
+      <figcaption class="tiempo__card-info">
+        <h2 class="tiempo__card-title">Dificultad</h2>
+        <p class="tiempo__card-description">Intermedio</p>
+      </figcaption>
+      </figure>
+    </div>
     
     <!-- tarjeta 2 cosinada -->
+    <div class="tiempo__card-container">
     <figure class="tiempo__card">
       <span class="tiempo__card-icon"><i class="bi bi-person-heart"></i></span>
     <figcaption class="tiempo__card-info">
@@ -117,8 +120,10 @@
       <p class="tiempo__card-description">1 Persona</p>
     </figcaption>
     </figure>
+  </div>
     
     <!-- tarjeta 3 porciones -->
+    <div class="tiempo__card-container">
     <figure class="tiempo__card">
       <span class="tiempo__card-icon"><i class="bi bi-person-standing"></i></span>
     <figcaption class="tiempo__card-info">
@@ -126,8 +131,10 @@
       <p class="tiempo__card-description">4</p>
     </figcaption>
     </figure>
+  </div>
     
     <!-- tarjeta 4 tiempo total -->
+    <div class="tiempo__card-container">
     <figure class="tiempo__card">
       <span class="tiempo__card-icon"><i class="bi bi-clock-history"></i></span>
     <figcaption class="tiempo__card-info">
@@ -136,6 +143,7 @@
     </figcaption>
     </figure>
   </section>
+  </div>
   
   <!-- inicio sección de utencilios animación -->
   <section class="utencilios__container">
@@ -153,5 +161,3 @@
 
 </body>
 </html>
-
-
