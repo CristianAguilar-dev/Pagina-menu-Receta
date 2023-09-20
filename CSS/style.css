@@ -183,7 +183,7 @@ body {
 
 /* estilos animación de texto */
 .animation__writing {
-	width: 200px;
+	width: 300px;
 	margin: var(--margin-center);
 	min-width: var(--min-width);
 	height: 100%;
