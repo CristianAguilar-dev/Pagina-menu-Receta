@@ -85,8 +85,8 @@ body {
 	border-radius: 20px;
 	border: 2px solid var(--primary-color);
 	object-fit: cover;
-	/* position: relative;
-	z-index: 1000; */
+	position: relative;
+	z-index: 1000;
 }
 
 /* estilos para la lista desordenada en el contenedor nav */
