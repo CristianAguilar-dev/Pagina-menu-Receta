@@ -183,12 +183,14 @@ body {
 
 /* estilos animación de texto */
 .animation__writing {
-	width: 300px;
+	width: 100%;
 	margin: var(--margin-center);
 	min-width: var(--min-width);
 	height: 100%;
 	padding: 20px;
 	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .animation__description {
