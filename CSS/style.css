@@ -179,6 +179,7 @@ body {
 .main {
 	width: 100%;
 	min-width: 320px;
+	padding-top: 80px;
 }
 
 /* estilos animación de texto */
