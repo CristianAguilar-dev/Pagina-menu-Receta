@@ -1,432 +1,686 @@
-    /* variables */
-    :root {
-        /* tipos de fuente y tamaño de fuente */
-        --family-Playfair: 'Playfair Display', serif;
-        --family-Montserrat: 'Montserrat', sans-serif;
-        --font-bold: 700;
-        --font-medium: 500;
-        --font-smoll: 400;
-    }
+/* variables */
+:root {
+	/* tipos de fuente */
+	--font-playfair: 'Playfair Display', serif;
+	--font-montserrat: 'Montserrat', sans-serif;
+	--font-pacifico: 'Pacifico', cursive;
+	/* peso de fuente */
+	--font-bold: 700;
+	--font-medium: 400;
+	/* colores */
+	--primary-color: #ffa200;
+	--secundary-color: #fff;
+	/* width general max-min*/
+	--max-width: 900px;
+	--min-width: 320px;
+	/* margen */
+	--margin-center: 0 auto;
+}
 
-    /* estilos generales en el selector universal */
-    * {
-        box-sizing: border-box;
-        margin: 0; padding: 0;
-    }
-    /* medidas relativas y efecto scroll suave  */
-    html {
-        font-size: 62.5%;
-        scroll-behavior: smooth;
-    }
-    body {
-        background-color: #080808;
-        /* width: 100vw; */
-        /* max-width: 1440px; */
-        height: 100vh;
-    }
-    
-    /* inicia estilos del contenedor de encabezado */
-    .header {
-        /* position: fixed;
-        inset: 0;
-        z-index: 2; */
-        width: 100%;
-        min-width: 320px;
-        height: 114px;
-    }
-    /* estilos para barra de navegación y menu hamburger */
-    .container {
-        background-color: #000;
-    }
-    /* estilos para contenedor barra de navegación */
-    .nav {  
-        padding: 20px;
-        display: grid;
-        grid-template-columns: repeat(2, max-content);
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 0 0 20px 20px;
-        transition: transform .2s, box-shadow .2s;
-        
-        /* variables para efectos de scale y translate del menu hamburger */
-        --state-hamburger: scale(1);
-        --state-close: scale(0);
-        --state-menu: translate(-100%); 
-    }
-    /* estilos cuando se enfoca el link */
-    .nav:target {
-        --state-hamburger: scale(0);
-        --state-close: scale(1);
-        --state-menu: translate(0); 
-    }
-    /* estilos para efecto hover */
-    .nav:hover {
-        box-shadow: 0 2px 2px rgba(204,136, 0.2);
-    }
-    /* estilos para imagen logo */
-    .nav__logo img {
-        width: 100px;
-        height: 70px;
-        border-radius: 20px;
-        border: 2px solid #ffa200;
-        object-fit: cover;
-        position: relative;
-        z-index: 1000;
-    }
-    /* estilos para la lista desordenada en el contenedor nav */
-    .nav__links {
-        background-color: #000;
-        position: absolute;
-        inset: 0;
-        display: grid;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
-        gap: 2rem;
-        transform: var(--state-menu);
-        transition: transform  .3s;
-    }
-    /* estilos para elementos de la lista desordenada*/
-    .nav__item {
-        list-style: none;
-        display: flex;
-        align-items: center;
-    }
-    /*estilos iconos de imagen en el elemento */
-    .receta__img, 
-    .utencilios__img {
-        width: 50px;
-        margin-right: 6px;
-    }
-    .tiempo__img,
-    .ingredientes__img,
-    .instruciones__img {
-        width: 40px;
-        margin-right: 6px;
-    }
-    /* estilos para el link */
-    .nav__link {
-        font-family: var(--family-Montserrat);
-        font-weight: var(--font-bold);
-        color: #fff;
-        font-size: 2.8rem;
-        text-decoration: none;
-        --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
-    }
-    /* estilos para efecto despues de link */
-    .nav__link::after {
-        content: "";
-        display: block;
-        background-color: #ffa200;
-        width: 100%;
-        height: 4px;
-        margin-top: 8px;
-        border: 1px solid #fff;
-        clip-path: var(--clippy);
-        transition: clip-path .4s;
-        
-    }
-    /* estilos para el efecto hover link */
-    .nav__link:hover {
-        --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        color: #ffd700;
-    }
-    /* estilos para el icono de hamburger y  close */
-    .nav__icon {
-        font-size: 40px;
-        color: #fff;
-    }
-    .nav__hamburger {
-        transform: var(--state-hamburger);
-    }
-    .nav__close {
-        transform: var(--state-close);
-    }    
-    .nav__hamburger,
-    .nav__close {
-        grid-column: 2/3;
-        grid-row: 1/2;
-        cursor: pointer;
-        transition: transform .2s;
-    }
-    
-    
-    /* inicio estilos sección de main */
-    .main {
-        width: 100%;
-        min-width: 320px;
-    }
-    /* estilos animación de texto */
-    .animation__writing {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        min-width: 320px;
-        height: 66px;
-        padding: 20px;
-        overflow-x: hidden;
-    }
-    .animation__description {
-        font-size: 2.3rem;
-        color: #ffa200;
-    }
-    .animation__writing span {
-        position: relative;
-    }
-    .animation__writing span::before {
-        content: "Receta";
-        color: #fff;
-        text-shadow: 0 0 4px #fff;
-        font-size: 2.2rem;
-        margin-left: 5px;
-        animation: words 20s infinite;
-    }
-    .animation__writing span::after {
-        content: "";
-        background-color: #080808;
-        position: absolute;
-        right: -8px;
-        width: calc(100% + 8px);
-        height: 100%;
-        padding: 2px;
-        animation: cursor .6s infinite, typing 20s steps(14) infinite;
-    }
-    
-    /* transiciones de las animaciones */
-    @keyframes cursor {
-        to {
-            border-left: 2px solid #fff;
-        }
-    }
-    @keyframes words {
-        0%, 20% {
-            content: "Receta.";
-        }
-        21%, 40% {
-            content: "Tiempo.";
-        }
-        41%, 60% {
-            content: "Utencilios";
-        }
-        61%, 80% {
-            content: "Ingredientes";
-        }
-        81%, 100% {
-            content: "Instrucciones";
-        }
-    }
-    @keyframes typing {
-        10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
-            width: 0;
-        }
-        5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
-            width: calc(100% + -1px);
-        }
-    }
-    
-    /* inicia estilos sección de receta */
-    /* estilos para la sección receta */
-    .receta {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        width: 100%;
-        margin: 0 auto;
-        min-width: 320px;
-        max-width: 900px;
-        padding: 20px;
-    }
-    .receta__container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        color: #fff;
-        gap: 20px;
-    }
-    .receta__title {
-        font-family: var(--family-Playfair);
-        font-weight: var(--font-bold);
-        font-size: 3.8rem;
-        line-height: 4.2rem;
-        letter-spacing: 2px;
-        color: #ffa200;
-        text-shadow: 0 0 3px #fff;
-        -webkit-text-stroke: 1px #fff;
-    }
-    .receta__description {
-        font-family: var(--family-Montserrat);
-        font-weight: var(--font-medium);
-        font-size: 2rem;
-        line-height: 2.4rem;
-        hyphens: auto;
-    }
-    .receta__container-imagen {
-        width: 100%; 
-        height: 240px;
-        /* border: 2px solid ; */
-        /* box-shadow: 0 4px 10px rgba(204,136, 0.2); */
-        box-shadow: 0 4px 8px rgba(255, 255, 255, .5);
-        border-radius: 18px;
-        transition: transform .6s ease-in-out;
-    }
-    .receta__container-imagen:hover {
-        transform: scale(1.1);
-    }
-    .receta__imagen {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 20px;
-        cursor: pointer;
-    }
-    
-    /* inicio targetas de estilos sección de tiempo */
-    .tiempo {
-        display: flex;
-        gap: 20px;
-        padding: 20px;
-        margin: 20px 0;
-        overflow-x: scroll;
-        overscroll-behavior-x: contain;
-        scroll-snap-type: x proximity;
-        transition: transform .5s ease-in-out;
-        
-    }
-    .tiempo__card-container  {
-        flex: 0 0 auto;
-        scroll-snap-align: center;
-    }
-    .tiempo__card {
-        width: 150px;
-        height: 150px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #0d0c0c;
-        box-shadow: 0 4px 8px rgba(255, 255, 255, .16);
-        border-radius: 20px;
-    }
-    .tiempo__card-icon i {
-        font-size: 3.8rem;
-        color: #ffa200;
-        text-shadow: 0 0 5px rgba(204,136, 0.2);
-        padding: 10px;
-    }
-    .tiempo__card-info {
-        color: #fff;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .tiempo__card-title {
-        font-family: var(--family-Playfair);
-        font-weight: var(--font-bold);
-        font-size: 1.8rem;
-        line-height: 2.4rem;
-    }
-    .tiempo__card-description {
-        font-family: var(--family-Montserrat);
-        font-weight: var(--font-medium);
-        font-size: 1.4rem;
-        line-height: 1.8rem;
-    }
-    
-    /* estilos sección de utencilios */
-    .utencilios__container {
-        position: relative;
-        background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.8)), url('../assets/cosina\ fondo.jpg') no-repeat center/cover;
-        width: 100%;
-        min-width: 320px;
-        margin: 0 auto;
-        height: 430px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-    }
-    .utencilios__title {
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 10px 20px;
-        font-size: 4.2rem;
-        color: #ffa200;
-        -webkit-text-stroke: 1px #fff;
-    }
-    /* estilos contenedor de utencilios */
-    .utencilios {
-        position: relative;
-        width: 120px;
-        height: 120px;
-        transform-style: preserve-3d;
-        animation: animate 20s linear infinite;
-    }
-    /* estilos escala de la animación utencilios */
-    @keyframes animate {
-        0% {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-        100% {
-            transform: perspective(1000px) rotateY(360deg);
-        }
-    }
-    .utencilios span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 150px;
-        transform-origin: center;
-        transform-style: preserve-3d;
-        transform: rotateY(calc(var(--i) * 50deg)) translateZ(300px);
-        transition: transform 0.5s ease-in-out;
-    }
-    .utencilios span::after {
-        content: attr(data-name);
-        position: absolute;
-        bottom: -30px;
-        left: 0;
-        width: 100%;
-        margin-top: 10px;
-        padding: 10px 0;
-        background: #0d0c0c;
-        border: 1px solid #ffa200;
-        color: #fff;
-        text-align: center;
-        font-size: 2.2rem;
-        display: block;
-    }
-    
-    .utencilios span::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-    
-    .utencilios span:hover::before {
-        opacity: 1;
-    }
-    
-    .utencilios span img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        display: block;
-        border: 2px solid #0d0c0c;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(255, 255, 255, .16);
-        object-fit: cover;
-    }
+/* estilos generales en el selector universal */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* medidas relativas y efecto scroll suave  */
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #080808;
+	/* max-width: 1440px; */
+}
+
+/* inicia estilos del contenedor de encabezado */
+.header {
+	/* position: fixed;
+	inset: 0;
+	z-index: 2; */
+	width: 100%;
+	min-width: 320px;
+	height: 114px;
+}
+
+/* estilos para barra de navegación y menu hamburger */
+.container {
+	background-color: #000;
+}
+
+/* estilos para contenedor barra de navegación */
+.nav {
+	padding: 20px;
+	display: grid;
+	grid-template-columns: repeat(2, max-content);
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 0 0 20px 20px;
+	transition: transform 0.2s, box-shadow 0.2s;
+
+	/* variables para efectos de scale y translate del menu hamburger */
+	--state-hamburger: scale(1);
+	--state-close: scale(0);
+	--state-menu: translate(-100%);
+}
+
+/* estilos cuando se enfoca el link */
+.nav:target {
+	--state-hamburger: scale(0);
+	--state-close: scale(1);
+	--state-menu: translate(0);
+}
+
+/* estilos para efecto hover */
+.nav:hover {
+	box-shadow: 0 2px 2px rgba(204, 136, 0.2);
+}
+
+/* estilos para imagen logo */
+.nav__logo img {
+	width: 100px;
+	height: 70px;
+	border-radius: 20px;
+	border: 2px solid var(--primary-color);
+	object-fit: cover;
+	/* position: relative;
+	z-index: 1000; */
+}
+
+/* estilos para la lista desordenada en el contenedor nav */
+.nav__links {
+	background-color: #000;
+	position: absolute;
+	inset: 0;
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+	gap: 2rem;
+	transform: var(--state-menu);
+	transition: transform 0.3s;
+}
+
+/* estilos para elementos de la lista desordenada*/
+.nav__item {
+	list-style: none;
+	display: flex;
+	align-items: center;
+}
+
+/*estilos iconos de imagen en el elemento */
+.receta__img,
+.utencilios__img {
+	width: 50px;
+	margin-right: 6px;
+}
+
+.tiempo__img,
+.ingredientes__img,
+.instruciones__img {
+	width: 40px;
+	margin-right: 6px;
+}
+
+/* estilos para el link */
+.nav__link {
+	font-family: var(--font-montserrat);
+	font-weight: var(--font-bold);
+	color: var(--secundary-color);
+	font-size: 2.8rem;
+	text-decoration: none;
+	--clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+
+/* estilos para efecto despues de link */
+.nav__link::after {
+	content: "";
+	display: block;
+	background-color: var(--primary-color);
+	width: 100%;
+	height: 4px;
+	margin-top: 8px;
+	border: 1px solid var(--secundary-color);
+	clip-path: var(--clippy);
+	transition: clip-path 0.4s;
+}
+
+/* estilos para el efecto hover link */
+.nav__link:hover {
+	--clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	color: #ffd700;
+}
+
+/* estilos para el icono de hamburger y  close */
+.nav__icon {
+	font-size: 40px;
+	color: var(--secundary-color);
+}
+
+.nav__hamburger {
+	transform: var(--state-hamburger);
+}
+
+.nav__close {
+	transform: var(--state-close);
+}
+
+.nav__hamburger,
+.nav__close {
+	grid-column: 2/3;
+	grid-row: 1/2;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+/* inicio estilos sección de main */
+.main {
+	width: 100%;
+	min-width: 320px;
+}
+
+/* estilos animación de texto */
+.animation__writing {
+	width: 200px;
+	margin: var(--margin-center);
+	min-width: var(--min-width);
+	height: 100%;
+	padding: 20px;
+	display: flex;
+}
+
+.animation__description {
+	font-size: 2.4rem;
+	color: var(--primary-color);
+}
+
+.animation__writing span {
+	position: relative;
+}
+
+.animation__writing span::before {
+	content: "Receta";
+	color: var(--secundary-color);
+	text-shadow: 0 0 4px var(--secundary-color);
+	font-size: 2.2rem;
+	margin-left: 5px;
+	animation: words 20s infinite;
+}
+
+.animation__writing span::after {
+	content: "";
+	background-color: #080808;
+	position: absolute;
+	right: -8px;
+	width: calc(100% + 8px);
+	height: 100%;
+	padding: 2px;
+	animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+/* transiciones de las animaciones */
+@keyframes cursor {
+	to {
+		border-left: 2px solid var(--secundary-color);
+	}
+}
+
+@keyframes words {
+
+	0%,
+	20% {
+		content: "Receta.";
+	}
+
+	21%,
+	40% {
+		content: "Tiempo.";
+	}
+
+	41%,
+	60% {
+		content: "Utencilios";
+	}
+
+	61%,
+	80% {
+		content: "Ingredientes";
+	}
+
+	81%,
+	100% {
+		content: "Instrucciones";
+	}
+}
+
+@keyframes typing {
+
+	10%,
+	15%,
+	30%,
+	35%,
+	50%,
+	55%,
+	70%,
+	75%,
+	90%,
+	95% {
+		width: 0;
+	}
+
+	5%,
+	20%,
+	25%,
+	40%,
+	45%,
+	60%,
+	65%,
+	80%,
+	85% {
+		width: calc(100% + -1px);
+	}
+}
+
+/* inicia estilos sección de receta */
+/* estilos para la sección receta */
+.receta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	width: 100%;
+	margin: var(--margin-center);
+	min-width: var(--min-width);
+	max-width: var(--max-width);
+	padding: 20px;
+}
+
+.receta__container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	color: var(--secundary-color);
+	gap: 30px;
+}
+
+.receta__title {
+	font-family: var(--font-pacifico);
+	font-weight: var(--font-medium);
+	font-size: 4.2rem;
+	line-height: 4.2rem;
+	letter-spacing: 2px;
+	color: var(--primary-color);
+	-webkit-text-stroke: 1px var(--secundary-color);
+}
+
+.receta__description {
+	font-family: var(--font-montserrat);
+	font-weight: var(--font-medium);
+	font-size: 2rem;
+	line-height: 2.8rem;
+	hyphens: auto;
+}
+
+.receta__container-imagen {
+	width: 100%;
+	height: 240px;
+	/* border: 2px solid ; */
+	/* box-shadow: 0 4px 10px rgba(204,136, 0.2); */
+	box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+	border-radius: 18px;
+	transition: transform 0.6s ease-in-out;
+}
+
+.receta__container-imagen:hover {
+	transform: scale(1.1);
+}
+
+.receta__imagen {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+/* estilos para sección de ingredientes 
+y sección de instrucciones*/
+.ingredientes,
+.instrucciones {
+	width: 100%;
+	margin: var(--margin-center);
+	height: auto;
+	min-width: var(--min-width);
+	max-width: var(--max-width);
+	padding: 20px 20px 0 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 15px;
+}
+
+.instrucciones {
+	padding-bottom: 20px;
+}
+
+.ingredientes__title,
+.instrucciones__title,
+.instrucciones__title-two {
+	font-family: var(--font-pacifico);
+	font-weight: var(--font-medium);
+	font-size: 4.2rem;
+	line-height: 4.4rem;
+	margin: 30px 0;
+	color: #ffa200;
+	-webkit-text-stroke: 1px #fff;
+}
+
+.instrucciones__title-two {
+	font-family: var(--font-playfair);
+	font-weight: var(--font-bold);
+	font-size: 2.8rem;
+	margin: 10px 0;
+	color: var(--primary-color);
+	-webkit-text-stroke: unset;
+	line-height: 3.4rem;
+}
+
+.instrucciones__title {
+	margin: 40px 0 20px 0;
+}
+
+.container__ingredientes-description,
+.container__instrucciones-description {
+	display: flex;
+}
+
+.container__ingredientes-description span,
+.container__instrucciones-description span {
+	color: var(--primary-color);
+	font-size: 2rem;
+	margin-right: 10px;
+	padding-top: 4px;
+}
+
+.bi-0-square-fill {
+	margin-left: -17px;
+}
+
+.ingredientes__description,
+.instrucciones__description {
+	font-family: var(--font-montserrat);
+	font-weight: var(--font-medium);
+	font-size: 2rem;
+	line-height: 2.8rem;
+	color: var(--secundary-color);
+}
+
+/* inicio targetas de estilos sección de tiempo */
+.tiempo {
+	display: flex;
+	gap: 20px;
+	padding: 20px;
+	margin: 20px 0;
+	overflow-x: scroll;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x proximity;
+	transition: transform 0.5s ease-in-out;
+}
+
+.tiempo__card-container {
+	flex: 0 0 auto;
+	scroll-snap-align: center;
+}
+
+.tiempo__card {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #0d0c0c;
+	box-shadow: 0 4px 8px rgba(255, 255, 255, 0.16);
+	border-radius: 20px;
+}
+
+.tiempo__card-icon i {
+	font-size: 3.8rem;
+	color: var(--primary-color);
+	text-shadow: 0 0 5px rgba(204, 136, 0.2);
+	padding: 10px;
+}
+
+.tiempo__card-info {
+	color: #fff;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.tiempo__card-title {
+	font-family: var(--font-playfair);
+	font-weight: var(--font-bold);
+	font-size: 1.8rem;
+	line-height: 2.4rem;
+}
+
+.tiempo__card-description {
+	font-family: var(--font-montserrat);
+	font-weight: var(--font-medium);
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+}
+
+/* estilos sección de utencilios */
+.utencilios__container {
+	position: relative;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+		url("../assets/cosina\ fondo.jpg") no-repeat center/cover;
+	width: 100%;
+	min-width: var(--min-width);
+	margin: var(--margin-center);
+	height: 430px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.utencilios__title {
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: var(--family-pacifico);
+	font-weight: 400;
+	padding: 10px;
+	border-radius: 20px;
+	font-size: 4.2rem;
+	color: var(--primary-color);
+	-webkit-text-stroke: 1px var(--secundary-color);
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* estilos contenedor de utencilios */
+.utencilios {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	transform-style: preserve-3d;
+	animation: animate 20s linear infinite;
+}
+
+/* estilos escala de la animación utencilios */
+@keyframes animate {
+	0% {
+		transform: perspective(1000px) rotateY(0deg);
+	}
+
+	100% {
+		transform: perspective(1000px) rotateY(360deg);
+	}
+}
+
+.utencilios span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 150px;
+	transform-origin: center;
+	transform-style: preserve-3d;
+	transform: rotateY(calc(var(--i) * calc(360deg / 7))) translateZ(145px);
+	transition: transform 0.5s ease-in-out;
+}
+
+.utencilios span::after {
+	content: attr(data-name);
+	position: absolute;
+	bottom: -30px;
+	left: 0;
+	width: 100%;
+	margin-top: 10px;
+	padding: 10px 0;
+	background: #0d0c0c;
+	box-shadow: 0 0 5px rgba(204, 136, 0.2);
+	color: #fff;
+	text-align: center;
+	font-size: 2.2rem;
+	display: block;
+}
+
+.utencilios span::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.utencilios span:hover::before {
+	opacity: 1;
+}
+
+.utencilios span img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(255, 255, 255, 0.16);
+	border: 2px solid #0d0c0c;
+	object-fit: cover;
+}
+
+/* estilos para footer */
+.footer {
+	width: 100%;
+	margin: var(--margin-center);
+	min-width: var(--min-width);
+	max-width: var(--max-width);
+	height: auto;
+	padding: 60px 20px 20px 20px;
+	background-color: #f0f0f0;
+	border-radius: 20% 20% 0 0;
+}
+
+/* estilos animación footer */
+.footer__links {
+	display: flex;
+	justify-content: center;
+	gap: 7px;
+}
+
+.footer__links li {
+	list-style: none;
+}
+
+.footer__links .bi {
+	font-size: 40px;
+	line-height: 60px;
+	transition: 0.5s;
+	color: #262626;
+}
+
+.footer__links .bi:hover {
+	color: var(--secundary-color);
+}
+
+.footer__links a {
+	position: relative;
+	display: block;
+	width: 60px;
+	height: 60px;
+	background: var(--secundary-color);
+	text-align: center;
+	transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
+	transition: 0.5s;
+	transition-timing-function: linear;
+	box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer__links a::before {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: -20px;
+	height: 61px;
+	width: 20px;
+	background: #b1b1b1;
+	transition: 0.5s;
+	transform: rotate(0deg) skewY(-45deg);
+}
+
+.footer__links a::after {
+	content: "";
+	position: absolute;
+	bottom: -20px;
+	left: -10px;
+	height: 20px;
+	width: 100%;
+	display: block;
+	background: #b1b1b1;
+	transition: 0.85s;
+	transform: rotate(0deg) skewX(-45deg);
+}
+
+.footer__links a:hover {
+	transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
+	box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.9);
+	display: block;
+}
+
+.footer__links li:hover a {
+	background: var(--clr0);
+}
+
+.footer__links li::before a {
+	background: var(--clr1);
+}
+
+.footer__links li::after a {
+	background: var(--clr2);
+}
+
+.footer__description {
+	font-size: 1.4rem;
+	color: #828282;
+	font-family: var(--font-montserrat);
+	font-weight: var(--font-bold);
+	text-align: center;
+	margin-top: 60px;
+}
+
+.footer__description span {
+	color: #555555;
+}
