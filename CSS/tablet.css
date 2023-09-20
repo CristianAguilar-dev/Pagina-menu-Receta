@@ -1,14 +1,18 @@
 .header {
-    width: 100%;
+    background: transparent;
+    
+}
+.nav__container-items {
     background: #000;
+    width: 100%;
     overflow-x: scroll;
     overscroll-behavior-x: contain;
     scroll-snap-type: x proximity;
     padding: 20px;
     border-radius: 0 0 20px 20px;
 }
-.header:hover {
-	box-shadow: 0 2px 2px rgba(204, 136, 0.2);
+.nav__container-items:hover {
+    box-shadow: 0 2px 2px rgba(204, 136, 0.2);
 }
 
 /* desarmar el menu hamburger */
@@ -29,7 +33,7 @@
     top: 22px;
     left: 0;
     width: 120px;
-    height: 91px;
+    height: auto;
     border-radius: 0 0 0 20px;
     background-color: #000;
     display: flex;
@@ -67,7 +71,7 @@
 .nav__link {
     font-size: 2rem;
     scroll-snap-align: center;
-    margin: 20px 6px 0 0;
+    margin: 20px 0 0 0;
 }
 .animation__writing {
     padding: 0;
@@ -90,6 +94,7 @@
 .tiempo {
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 .utencilios span {
 	transform: rotateY(calc(var(--i) * calc(360deg / 7))) translateZ(300px);
