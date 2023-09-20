@@ -32,6 +32,7 @@ html {
 
 body {
 	background-color: #080808;
+	position: relative;
 	/* max-width: 1440px; */
 }
 
@@ -594,6 +595,8 @@ y sección de instrucciones*/
 	padding: 60px 20px 20px 20px;
 	background-color: #f0f0f0;
 	border-radius: 20% 20% 0 0;
+	position: absolute;
+	bottom: -236px;
 }
 
 /* estilos animación footer */
