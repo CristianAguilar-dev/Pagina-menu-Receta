@@ -605,8 +605,6 @@ y sección de instrucciones*/
 	padding: 60px 20px 20px 20px;
 	background-color: #f0f0f0;
 	border-radius: 20% 20% 0 0;
-	position: relative;
-	z-index: -1;
 }
 
 /* estilos animación footer */
