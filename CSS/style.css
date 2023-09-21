@@ -31,20 +31,20 @@ html {
 }
 
 body {
+	width: 100%;
+	max-width: 1440px;
 	background-color: #080808;
-	height: 100%;
 }
 
 /* inicia estilos del contenedor de encabezado */
 .header {
-	position: fixed;
-	inset: 0;
-	z-index: 1000;
 	width: 100%;
 	min-width: 320px;
 	height: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
-
 /* estilos para barra de navegación y menu hamburger */
 .container {
 	background-color: #000;
@@ -86,18 +86,24 @@ body {
 	border: 2px solid var(--primary-color);
 	object-fit: cover;
 	position: relative;
-	z-index: 1000;
+	z-index: 5;
 }
 
 /* estilos para la lista desordenada en el contenedor nav */
 .nav__links {
 	background-color: #000;
 	position: absolute;
-	inset: 0;
+	top: -275px;
+	left: 0;
+	right: 0;
+	bottom: 10px;
+	z-index: 4;
+	display: none;
 	display: grid;
 	align-content: center;
 	justify-content: center;
 	text-align: center;
+	height: 1204px;
 	gap: 2rem;
 	transform: var(--state-menu);
 	transition: transform 0.3s;
@@ -169,6 +175,9 @@ body {
 
 .nav__hamburger,
 .nav__close {
+	position: relative;
+	z-index: 1000;
+	display: block;
 	grid-column: 2/3;
 	grid-row: 1/2;
 	cursor: pointer;
@@ -192,6 +201,8 @@ body {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	position: relative;
+	z-index: -1;
 }
 
 .animation__description {
@@ -480,6 +491,7 @@ y sección de instrucciones*/
 /* estilos sección de utencilios */
 .utencilios__container {
 	position: relative;
+	z-index: -1;
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
 		url("../assets/cosina\ fondo.jpg") no-repeat center/cover;
 	width: 100%;
@@ -593,6 +605,8 @@ y sección de instrucciones*/
 	padding: 60px 20px 20px 20px;
 	background-color: #f0f0f0;
 	border-radius: 20% 20% 0 0;
+	position: relative;
+	z-index: -1;
 }
 
 /* estilos animación footer */
