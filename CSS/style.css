@@ -262,12 +262,12 @@ body {
 
 	61%,
 	80% {
-		content: "Ingredientes";
+		content: "Ingredientes.";
 	}
 
 	81%,
 	100% {
-		content: "Instrucciones";
+		content: "Instrucciones.";
 	}
 }
 
