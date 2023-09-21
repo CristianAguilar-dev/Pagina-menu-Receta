@@ -1,5 +1,5 @@
 .header {
-    overflow: hidden;
+    z-index: 1000;
 }
 .nav__container-items {
     overflow: hidden;
@@ -11,14 +11,14 @@
     margin: 0;
 }
 .nav__link {
-    position: relative;
+    --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
 }
 .nav__link::after {
-    position: absolute;
-    inset: 57px 0;
-    height: 4px;
-    border-radius: 20%;
-    border: 1px solid #fff;
+    clip-path: var(--clippy);
+	transition: clip-path 0.4s;
+}
+.nav__link:hover {
+	--clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 .receta__container-imagen {
     height: 440px;
