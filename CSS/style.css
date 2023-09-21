@@ -208,6 +208,8 @@ body {
 .animation__description {
 	font-size: 2.4rem;
 	color: var(--primary-color);
+        display: inline-block;
+	margin-right: 8px;
 }
 
 .animation__writing span {
