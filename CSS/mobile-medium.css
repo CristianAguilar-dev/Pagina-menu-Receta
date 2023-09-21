@@ -1,8 +1,9 @@
 .utencilios span {
 	transform: rotateY(calc(var(--i) * calc(360deg / 7))) translateZ(200px);
 }
-.tiempo {
-    justify-content: center;
+.footer {
+    position: relative;
+    z-index: 1000;
 }
 .footer__links {
     gap: 40px;
