@@ -5,8 +5,6 @@
     overflow: hidden;
 }
 .nav__links {
-    display: grid;
-    grid-template-columns: 129px 127px 163px 183px 189px;
     gap: 15px;
     margin: 0;
 }
