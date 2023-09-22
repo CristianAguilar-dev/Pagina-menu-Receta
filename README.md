@@ -24,6 +24,7 @@ Comparto mi solución para el proyecto "Mi Recetario Blog". El objetivo era crea
 - CSS3
 - Bootstrap
 - Diseño Responsivo
+- Google Fonts
 
 ## Desarrollo Paso a Paso
 
@@ -44,8 +45,8 @@ Uno de los mayores desafíos fue crear un diseño atractivo que también fuera f
 - [HML5](https://developer.mozilla.org/es/docs/Web/HTML)
 - [CSS3](https://developer.mozilla.org/es/docs/Web/CSS)
 - [Bootstrap](https://getbootstrap.com/)
+- [Google Fonts](https://fonts.google.com/)
 - [Diseño Responsivo](https://developer.mozilla.org/es/docs/Glossary/Responsive_web_design)
-
 ## Lo que Aprendí
 
 Este proyecto me permitió mejorar mis habilidades de diseño y desarrollo web, así como mi comprensión de cómo crear páginas web atractivas y funcionales. Aprendí a mejorar el diseño y a organizar el contenido de manera efectiva.
