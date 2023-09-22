@@ -5,7 +5,7 @@ Esta es mi solución para el desafío de crear un blog de recetas. Este desafío
 ## Descripción General
 ### Captura de Pantalla de mi Solución
 
-![Captura de Pantalla](./assets/Captura%20de%20pantalla.png)
+![Captura de Pantalla](./assets/Captura-pantalla-pagina-receta.png)
 
 Comparto mi solución para el proyecto "Mi Recetario Blog". El objetivo era crear un blog de recetas en línea, siguiendo el diseño y las funcionalidades proporcionadas.
 
@@ -48,7 +48,7 @@ Uno de los mayores desafíos fue crear un diseño atractivo que también fuera f
 
 ## Lo que Aprendí
 
-Este proyecto me permitió mejorar mis habilidades de diseño y desarrollo web, así como mi comprensión de cómo crear páginas web atractivas y funcionales. Aprendí a utilizar Bootstrap para mejorar el diseño y a organizar el contenido de manera efectiva.
+Este proyecto me permitió mejorar mis habilidades de diseño y desarrollo web, así como mi comprensión de cómo crear páginas web atractivas y funcionales. Aprendí a mejorar el diseño y a organizar el contenido de manera efectiva.
 
 ## Desarrollo Continuo
 
